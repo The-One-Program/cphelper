@@ -1,0 +1,82 @@
+{
+    "name": "capybara",
+    "publisher": "vscode-samples",
+    "description": "Uri Handler Sample",
+    "version": "0.0.1",
+    "private": true,
+
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "checker-explorer",
+                    "title": "checker Explorer",
+                    "icon": "Others/icon.png"
+                }
+            ]
+        },
+        "views": {
+            "checker-explorer": [
+                {
+                    "id": "checker-dependencies",
+                    "name": "Stress Tester"
+                }
+            ]
+        },
+        "commands": [
+            {
+                "command": "capybara.hello",
+                "title": "Hello World!"
+            },
+            {
+                "command": "capybara.inputGenerator",
+                "title": "inputGenerator"
+            },
+            {
+                "command": "capybara.file1",
+                "title": "Sulotion 1"
+            },
+            {
+                "command": "capybara.file2",
+                "title": "Sulotion 1"
+            }
+        ],
+        "viewsWelcome": [
+            {
+                "view": "checker-dependencies",
+                "contents": "Input the Generator FILE\n[Generator](command:capybara.inputGenerator)\nInput the Brute FILE\n[File1](command:capybara.inputFile1)\nInput User FILE\n[File2](command:capybara.inputFile2)"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.1.3",
+        "@types/node": "^16.11.7",
+        "@types/vscode": "^1.73.0",
+        "@typescript-eslint/eslint-plugin": "^5.42.0",
+        "@typescript-eslint/parser": "^5.42.0",
+        "@vscode/test-electron": "^1.6.1",
+        "eslint": "^8.26.0",
+        "glob": "^7.1.6",
+        "typescript": "^4.8.4"
+    },
+    "dependencies": {
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7"
+    }
+}
