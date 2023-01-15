@@ -4,13 +4,13 @@ import x from './function/InputFile';
 let data1 = '' , data2 = '' , data3 = '';
 let NEXT_TERM_ID = 1;
 export function activate(context: vscode.ExtensionContext) {
+    vscode.window.createTerminal(`Ext Terminal #${NEXT_TERM_ID++}`);
     context.subscriptions.push(vscode.commands.registerCommand('terminalTest.sendTextNoNewLine', () => {
-        vscode.window.createTerminal(`Ext Terminal #${NEXT_TERM_ID++}`);
 		if (ensureTerminalExists()) {
 			selectTerminal().then(terminal => {
 				if (terminal && data1!='' && data2 != '' && data3 != '' ) {
 
-					terminal.sendText("bash tester.sh '"+ data1+"' '"+data2+"' '" +data3 + "'", false);
+					terminal.sendText("bash tester.sh generator.cpp input.cpp brute.cpp", false);
                     
                     vscode.window.showInformationMessage("Operation Successful");
 				}
@@ -23,7 +23,10 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerCommand(
 		'capybara.inputGenerator',
 		async () => {
-            data1 = await x();
+            x().then(data =>{
+                terminal.sendText('touch 1.cpp');
+                te
+            });
          
         }
     ));

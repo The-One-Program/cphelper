@@ -2,9 +2,9 @@
 
 pwd
 
-touch generator.cpp | echo $1 > generator.cpp
-touch main.cpp | echo $2 > main.cpp
-touch brute.cpp | echo $3 > brute.cpp
+touch generator.cpp | cat $1 > generator.cpp
+touch main.cpp | cat $2 > main.cpp
+touch brute.cpp | cat $3 > brute.cpp
 touch ans.txt
 
 g++ $generator.cpp -o $generator
