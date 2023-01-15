@@ -1,8 +1,11 @@
 #!/bin/bash
 
+pwd
+
 touch generator.cpp | echo $1 > generator.cpp
 touch main.cpp | echo $2 > main.cpp
 touch brute.cpp | echo $3 > brute.cpp
+touch ans.txt
 
 g++ $generator.cpp -o $generator
 g++ $main.cpp -o $main 
@@ -12,7 +15,7 @@ flag=true
 
 for i in {1..10}
 do
-    echo "$i"
+    echo "$i" 
  
 	./generator > input.txt
 	./main < input.txt > output.txt
@@ -22,12 +25,12 @@ do
  
 	myVar=($(wc -w ./diff.txt))
 	if [ $myVar -gt 0 ] ; then
-		echo "Wrong on test: $i"
+		"Wrong on test: $i" > ans
 		flag=false
         break
 	fi
 done
 
 if [ "$flag" = true ] ; then
-	echo "All cases passed"
+	"All cases passed" > ans
 fi
