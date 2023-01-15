@@ -4,14 +4,15 @@
     "description": "Uri Handler Sample",
     "version": "0.0.1",
     "private": true,
-
     "engines": {
         "vscode": "^1.74.0"
     },
     "categories": [
         "Other"
     ],
-    "activationEvents": [],
+    "activationEvents": [
+        "onTerminalProfile:terminalTest.terminal-profile"
+    ],
     "main": "./out/extension.js",
     "contributes": {
         "viewsContainers": {
@@ -33,8 +34,8 @@
         },
         "commands": [
             {
-                "command": "capybara.hello",
-                "title": "Hello World!"
+                "command": "capybara.Run",
+                "title": "RunTestCase"
             },
             {
                 "command": "capybara.inputGenerator",
@@ -42,17 +43,21 @@
             },
             {
                 "command": "capybara.file1",
-                "title": "Sulotion 1"
+                "title": "Solution 1"
             },
             {
                 "command": "capybara.file2",
-                "title": "Sulotion 1"
-            }
+                "title": "Solution 2 "
+            },
+            {
+				"command": "terminalTest.sendTextNoNewLine",
+				"title": "Terminal API: Send Text (no implied \\n)"
+			}
         ],
         "viewsWelcome": [
             {
                 "view": "checker-dependencies",
-                "contents": "Input the Generator FILE\n[Generator](command:capybara.inputGenerator)\nInput the Brute FILE\n[File1](command:capybara.inputFile1)\nInput User FILE\n[File2](command:capybara.inputFile2)"
+                "contents": "Input the Generator FILE\n[Generator](command:capybara.inputGenerator)\nInput the Brute FILE\n[File1](command:capybara.inputFile1)\nInput User FILE\n[File2](command:capybara.inputFile2)\n Run \n[Run](command:terminalTest.sendTextNoNewLine)\n"
             }
         ]
     },
